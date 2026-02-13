@@ -9,8 +9,7 @@ import Animated, {
   withSequence,
   withTiming
 } from 'react-native-reanimated';
-import {Dimensions} from 'react-native';
-
+import {useWindowDimensions} from 'react-native';
 
 interface SensorData {
   t1: number;
@@ -103,9 +102,7 @@ const theme = {
   },
 };
 
-//responsiveness
-/**const {width} = Dimensions.get('window');
-const cardWidth = (width - 48) / 2; */
+
 
 
 //API
@@ -138,6 +135,11 @@ const currentTheme = isDark ? theme.dark : theme.light;
       setLoading(false);
     }
   };
+
+  
+//responsiveness
+const {width, height} = useWindowDimensions();
+
 
   useEffect(()=> {
    fetchParameter();
@@ -246,10 +248,11 @@ return (
 
 const styles = StyleSheet.create({
   container:{
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: '#fff', 
     paddingTop: 60,
-    padding: 16
+    padding: 16,
+   
   },
   footer: {
     fontSize: 12,
@@ -263,8 +266,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 12,
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: 80,
     width: '100%',
+    
   },
   logo: {
     width: 40,
@@ -275,6 +279,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
+    
   },
   head:{
     paddingVertical: 10,
@@ -302,7 +307,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: '48%',
-    aspectRatio: 0.60,
+    aspectRatio: 0.70,
     backgroundColor: '#fff',
     borderRadius: 24,
     padding: 15,
