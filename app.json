@@ -3,7 +3,7 @@
     "name": "AOWLYF DYNAMICS",
     "slug": "aowlyf_dynamics",
     "version": "1.0.0",
-    "orientation": "default",
+    "orientation": "portrait",
     "icon": "./assets/images/newlogo.png",
     "scheme": "aowlyf_dynamics",
     "userInterfaceStyle": "automatic",
