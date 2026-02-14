@@ -177,13 +177,17 @@ const {width, height} = useWindowDimensions();
 
   //image import
   const img = require('../assets/images/newlogo.png');
+  const spin = require('../assets/images/spinner.gif');
   const email = {
     email: "aowlyfdynamics@gmail.com"
   }
  
 return (
 
-  <ScrollView style={[styles.container, { backgroundColor: currentTheme.background }]}>
+  (loading?(<View style={styles.loader}>
+    <Image source={spin} style={styles.spinner} />
+<Text style={{color: currentTheme.text}}>Loading</Text>
+  </View>):(<ScrollView style={[styles.container, { backgroundColor: currentTheme.background }]}>
 <StatusBar style={isDark ? 'light' : 'dark'} />
     <View style={styles.head}>
       <View style={styles.logocont}>
@@ -241,12 +245,22 @@ return (
 
 
   
-  </ScrollView>
+  </ScrollView>))
 )
 }
 //Add auto refresh every 5 seconds
 
 const styles = StyleSheet.create({
+  loader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  spinner: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
+  },
   container:{
     flexGrow: 1,
     backgroundColor: '#fff', 
@@ -373,3 +387,5 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
 })
+
+// .\gradlew assembleRelease
