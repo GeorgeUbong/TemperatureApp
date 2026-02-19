@@ -4,17 +4,18 @@
     "slug": "aowlyf_dynamics",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/newlogo.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "aowlyf_dynamics",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "icon": "./assets/images/icon.png"
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/newlogo.png",
+        "foregroundImage": "./assets/images/icon.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
@@ -29,11 +30,12 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
+          "image": "./assets/images/icon.png",
+          "imageWidth": 180,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
+          "backgroundColor": "#232323",
           "dark": {
+            "image": "./assets/images/icon.png",
             "backgroundColor": "#000000"
           }
         }

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from "react";
-import { Image, StyleSheet, Text, useColorScheme, View, ScrollView } from "react-native";
+import { ActivityIndicator, Image, ScrollView, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from "react-native";
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -9,7 +9,6 @@ import Animated, {
   withSequence,
   withTiming
 } from 'react-native-reanimated';
-import {useWindowDimensions} from 'react-native';
 
 interface SensorData {
   t1: number;
@@ -176,7 +175,7 @@ const {width, height} = useWindowDimensions();
   const cardColor4 = checkTemperature(data?.t4);
 
   //image import
-  const img = require('../assets/images/newlogo.png');
+  const img = require('../assets/images/icon.png');
   const spin = require('../assets/images/spinner.gif');
   const email = {
     email: "aowlyfdynamics@gmail.com"
@@ -184,8 +183,8 @@ const {width, height} = useWindowDimensions();
  
 return (
 
-  (loading?(<View style={styles.loader}>
-    <Image source={spin} style={styles.spinner} />
+  (loading?(<View style={[styles.loader, { backgroundColor: currentTheme.background }]}>
+    <ActivityIndicator size={80}/>
 <Text style={{color: currentTheme.text}}>Loading</Text>
   </View>):(<ScrollView style={[styles.container, { backgroundColor: currentTheme.background }]}>
 <StatusBar style={isDark ? 'light' : 'dark'} />
